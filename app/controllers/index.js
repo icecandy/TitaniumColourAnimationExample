@@ -3,30 +3,32 @@
 // @description   Example Titanium project to show how to animate colour using the Chroma library from Gregor Aisch https://github.com/gka/chroma.js/
 //                We animate a box view in a repeated bounce cycle from red to blue and also show sliders altering the colour, brightness and saturation
 //                of a box view.
-//@reference      You can read an articles on this example on Medium.
+// @reference     You can read an article on this example on Medium.
 //                ?????????????????????????
 
 //REQUIRES
 var Chroma = require('Chroma');
 
+//CONSTANTS
+var COLOUR1 = '#FF0000', //red
+    COLOUR2 = '#0000FF', //blue
+    FRAME_RATE = 20, //frames per second
+    ANIMATION_PERIOD = 2000; //time in milliseconds for one cycle of animation
+
 //VARS
-var colour1 = '#FF0000',
-    colour2 = '#00FF00',
-    colour3 = '#0000FF',
-    frameRate = 20, //frames per second
-    frameCount = 0,
-    animationPeriod = 2000, //time in milliseconds for one cycle of animation
+var frameCount = 0,
     chromaScale,
     intervalID;
 
 //init box colours
-$.animatedBox.backgroundColor = colour1;
-$.box1.backgroundColor = colour1;
-$.box2.backgroundColor = Chroma(360, 1, 1, 'hsv').hex(); //colour1;
+$.animatedBox.backgroundColor = COLOUR1;
+$.box1.backgroundColor = COLOUR1;
+$.box2.backgroundColor = Chroma(360, 1, 1, 'hsv').hex();
 $.box3.backgroundColor = Chroma(360, 1, 1, 'hsv').hex();
 
-//set a chroma scale - an even colour gradient between colours 1, 2 or 3
-chromaScale = Chroma.scale([colour1, colour3]);
+//set a chroma scale - an even colour gradient between colours 1 and 2
+//Note the interpolation is smoothest in the Lab colour space so we set the mode to 'lab'
+chromaScale = Chroma.scale([COLOUR1, COLOUR2]).mode('lab');
 
 //change the colour hue
 function onSlider1Change(_evt) {
@@ -48,12 +50,12 @@ function onSlider3Change(_evt) {
 
 function updateAnimation() {
     frameCount++;
-    var time = frameCount * 1000 / frameRate;
+    var time = frameCount * 1000 / FRAME_RATE;
     //phase
-    var phase = Math.floor(time / animationPeriod) % 2;
+    var phase = Math.floor(time / ANIMATION_PERIOD) % 2;
     //cycle the animation
-    time = time % animationPeriod;
-    var scaleFactor = time / animationPeriod;
+    time = time % ANIMATION_PERIOD;
+    var scaleFactor = time / ANIMATION_PERIOD;
     //if we are in an odd phase then reverse the animation
     if (phase === 1)
         scaleFactor = 1 - scaleFactor;
@@ -63,7 +65,7 @@ function updateAnimation() {
 //update animation on every frame
 intervalID = setInterval(function() {
     updateAnimation();
-}, 1000 / frameRate);
+}, 1000 / FRAME_RATE);
 
 //make sure and stop the interval timer on window close!
 $.win.addEventListener('close', function(_evt) {

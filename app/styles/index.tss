@@ -1,6 +1,5 @@
 "Label" : {
 	color: "black",
-	//verticalAlign: "Ti.UI.TEXT_VERTICAL_ALIGNMENT_CENTER",
 	font: {
 		fontSize: 12
 	},
@@ -9,7 +8,6 @@
 }
 
 "Slider" : {
-	//left: 10,
 	top: 10,
 	width: 150,
 	height: 40,
@@ -18,8 +16,9 @@
 	value: 0
 }
 
+//just adding a background on android so you can see the slider channel
 "Slider[platform=android]" : {
-	//backgroundColor: "#d1d1d1"
+	backgroundColor: "#e7e7e7"
 }
 
 "#win" : {
@@ -42,8 +41,7 @@
 ".row" : {
 	top: 30,
 	width: Ti.UI.SIZE,
-	height: 80,
-	//borderColor: 'green'
+	height: 80
 }
 
 ".column" : {
