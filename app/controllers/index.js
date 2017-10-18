@@ -4,7 +4,7 @@
 //                We animate a box view in a repeated bounce cycle from red to blue and also show sliders altering the colour, brightness and saturation
 //                of a box view.
 // @reference     You can read an article on this example on Medium.
-//                ?????????????????????????
+//                https://medium.com/@simonbuckingham/colour-animation-in-titanium-9ad40bad8176
 
 //REQUIRES
 var Chroma = require('Chroma');
