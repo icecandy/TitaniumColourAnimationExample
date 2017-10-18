@@ -1,0 +1,52 @@
+"Label" : {
+	color: "black",
+	//verticalAlign: "Ti.UI.TEXT_VERTICAL_ALIGNMENT_CENTER",
+	font: {
+		fontSize: 12
+	},
+	height: Ti.UI.SIZE,
+	width: Ti.UI.SIZE
+}
+
+"Slider" : {
+	//left: 10,
+	top: 10,
+	width: 150,
+	height: 40,
+	min: 0,
+	max: 100,
+	value: 0
+}
+
+"Slider[platform=android]" : {
+	//backgroundColor: "#d1d1d1"
+}
+
+"#win" : {
+	backgroundColor: "white"
+}
+
+"#container" : {
+	height: Ti.UI.SIZE
+}
+
+".box" : {
+	width: 80,
+	height: 80
+}
+
+".boxLeft" : {
+	left: 20
+}
+
+".row" : {
+	top: 30,
+	width: Ti.UI.SIZE,
+	height: 80,
+	//borderColor: 'green'
+}
+
+".column" : {
+	width: Ti.UI.SIZE,
+	height: Ti.UI.SIZE
+}

@@ -1,0 +1,28 @@
+<Alloy>
+  <Window id="win">
+    <View id="container" layout="vertical">
+      <View id="animatedBox" class="box" top="40"/>
+      <View class="row" layout="horizontal">
+        <View class="column" layout="vertical">
+          <Label>Colour</Label>
+          <Slider id="slider1" onChange="onSlider1Change"/>
+        </View>
+        <View id="box1" class="box boxLeft"/>
+      </View>
+      <View class="row" layout="horizontal">
+        <View class="column" layout="vertical">
+          <Label>Saturation</Label>
+          <Slider id="slider2" onChange="onSlider2Change" value="100"/>
+        </View>
+        <View id="box2" class="box boxLeft"/>
+      </View>
+      <View class="row" layout="horizontal">
+        <View class="column" layout="vertical">
+          <Label>Brightness</Label>
+          <Slider id="slider3" onChange="onSlider3Change" value="100"/>
+        </View>
+        <View id="box3" class="box boxLeft"/>
+      </View>
+    </View>
+  </Window>
+</Alloy>
